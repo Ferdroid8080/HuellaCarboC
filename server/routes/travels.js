@@ -24,7 +24,7 @@ router.post('/create',
     async (req, res, next) => {
         const {
             startPoint, finalPoint,
-            vehicleId, kilometers,
+            vehicleLabel, kilometers,
             workers, roundTrip
         } = req.body
         try {
@@ -38,7 +38,7 @@ router.post('/create',
             const createdTravel = await travelModel.create({
                 startPoint,
                 finalPoint,
-                vehicle: await vehicleModel.findById(vehicleId),
+                vehicle: await vehicleModel.findOne({ label: vehicleLabel }),
                 kilometers,
                 workers,
                 roundTrip
