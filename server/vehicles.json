@@ -1,0 +1,127 @@
+[{
+  "_id": {
+    "$oid": "5f7f82c774a44f2df653c699"
+  },
+  "name": "Metro",
+  "emitfactor": "0.033",
+  "label": "metro",
+  "created_at": {
+    "$date": "2020-10-08T21:21:11.984Z"
+  },
+  "updated_at": {
+    "$date": "2020-10-08T21:21:11.984Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7f839d8aba952e10a6ae57"
+  },
+  "name": "Auto (Gasolina)",
+  "emitfactor": "0.21",
+  "label": "auto-gasolina",
+  "created_at": {
+    "$date": "2020-10-08T21:24:45.796Z"
+  },
+  "updated_at": {
+    "$date": "2020-10-08T21:24:45.796Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7f83bf8aba952e10a6ae58"
+  },
+  "name": "Camioneta (Diésel)",
+  "emitfactor": "0.249",
+  "label": "camioneta-diesel",
+  "created_at": {
+    "$date": "2020-10-08T21:25:19.425Z"
+  },
+  "updated_at": {
+    "$date": "2020-10-08T21:25:19.425Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f8068a90802ea1242b534b1"
+  },
+  "name": "Motocicleta (Gasolina)",
+  "emitfactor": "0.092",
+  "label": "motocicleta-gasolina",
+  "created_at": {
+    "$date": "2020-10-09T13:42:01.974Z"
+  },
+  "updated_at": {
+    "$date": "2020-10-09T13:42:01.974Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f8068c10802ea1242b534b2"
+  },
+  "name": "Bus Transantiago (Transporte público)",
+  "emitfactor": "0.039",
+  "label": "bus-transantiago-transporte-publico",
+  "created_at": {
+    "$date": "2020-10-09T13:42:25.737Z"
+  },
+  "updated_at": {
+    "$date": "2020-10-09T13:42:25.737Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f8068d30802ea1242b534b3"
+  },
+  "name": "Bus (Vehículo privado)",
+  "emitfactor": "0.012",
+  "label": "bus-vehiculo-privado",
+  "created_at": {
+    "$date": "2020-10-09T13:42:43.442Z"
+  },
+  "updated_at": {
+    "$date": "2020-10-09T13:42:43.442Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f8068e60802ea1242b534b4"
+  },
+  "name": "Avión (Chile)",
+  "emitfactor": "0.279",
+  "label": "avion-chile",
+  "created_at": {
+    "$date": "2020-10-09T13:43:02.986Z"
+  },
+  "updated_at": {
+    "$date": "2020-10-09T13:43:02.986Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f8068f60802ea1242b534b5"
+  },
+  "name": "Avión (Internacional)",
+  "emitfactor": "0.179",
+  "label": "avion-internacional",
+  "created_at": {
+    "$date": "2020-10-09T13:43:18.221Z"
+  },
+  "updated_at": {
+    "$date": "2020-10-09T13:43:18.221Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f8069000802ea1242b534b6"
+  },
+  "name": "Caminando",
+  "emitfactor": "0",
+  "label": "caminando",
+  "created_at": {
+    "$date": "2020-10-09T13:43:28.690Z"
+  },
+  "updated_at": {
+    "$date": "2020-10-09T13:43:28.690Z"
+  },
+  "__v": 0
+}]
