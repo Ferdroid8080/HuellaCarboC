@@ -58,7 +58,7 @@ export const fetchTravels = () => (
     async dispatch => {
         dispatch(fetchTravelsInit())
         try {
-            let travels = await fetch('http://localhost:4500/travels')
+            let travels = await fetch(`${process.env.REACT_APP_API_BASEURL}/travels`)
             if (travels.ok) {
                 travels = await travels.json()
                 if (travels.error) {
@@ -82,7 +82,7 @@ export const fetchVehicles = () => (
     async dispatch => {
         dispatch(fetchVehiclesInit())
         try {
-            let vehicles = await fetch('http://localhost:4500/vehicles')
+            let vehicles = await fetch(`${process.env.REACT_APP_API_BASEURL}/vehicles`)
             if (vehicles.ok) {
                 vehicles = await vehicles.json()
                 if (vehicles.error) {
@@ -107,7 +107,7 @@ export const registerTravel = (params) => (
     async dispatch => {
         dispatch(registerTravelInit())
         try {
-            let newTravel = await fetch('http://localhost:4500/travels/create', {
+            let newTravel = await fetch(`${process.env.REACT_APP_API_BASEURL}/travels/create`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
