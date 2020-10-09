@@ -23,7 +23,7 @@ function NewTravel(props) {
             return
         }
         props.onRegisterTravel(values)
-        props.history.redirect('/')
+        props.history.replace('/travels')
     }
 
     const modalPeopleHandler = e => {

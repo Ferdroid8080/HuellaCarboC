@@ -33,7 +33,7 @@ function Travels(props) {
                     </Table.Row>
                 </Table.Header>
                 <Table.Body>
-                {props.travels && props.travels.map((item, i) => (
+                {props.travels.length > 0 && props.travels.map((item, i) => (
                     <Table.Row key={item._id}>
                         <Table.Cell textAlign='center'>{(i+1)}</Table.Cell>
                         <Table.Cell textAlign='center'>{moment(item.created_at).format('DD/MM/YYYY')}</Table.Cell>

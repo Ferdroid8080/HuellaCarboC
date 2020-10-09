@@ -121,7 +121,7 @@ export const registerTravel = (params) => (
                         message: 'Travel cannot be added'
                     }))
                 } else {
-                    dispatch(registerTravelSuccess([newTravel.data]))
+                    dispatch(registerTravelSuccess(newTravel.data))
                 }
             } else {
                 throw Error(`${newTravel.status} ${newTravel.statusText}`)
