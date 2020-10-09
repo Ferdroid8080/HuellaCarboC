@@ -23,6 +23,8 @@ Es posible consumir los siguientes endpoints desde postman o cualquier app:
 | POST	| /vehicles/create |  	| name:String, emitfactor:String |
 | GET	| /vehicles |  	|  |
 
+> He adjuntado los datos que alimenta el selector de los medios de tranporte, y que, puedes encontrar en el archivo [vehicles.json](https://github.com/andresfmj/crbnfp/blob/master/server/vehicles.json), para ello se debe crear una colección en mongodb con el nombre `vehicles` dentro de la bd que asignes en la variable de entorno `DB_NAME`.
+
 <br>
 
 ### client
