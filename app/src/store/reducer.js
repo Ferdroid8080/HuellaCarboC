@@ -6,7 +6,9 @@ const initialState = {
     travelsLoading: false,
     vehicles: [],
     vehiclesError: null,
-    vehiclesLoading: false
+    vehiclesLoading: false,
+    newTravelLoading: false,
+    newTravelError: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -47,6 +49,25 @@ const reducer = (state = initialState, action) => {
             vehicles: action.payload,
             vehiclesError: null,
             vehiclesLoading: false
+        }
+    } else if (action.type === actions.REGISTER_TRAVEL_INIT) {
+        return {
+            ...state,
+            newTravelError: null,
+            newTravelLoading: true
+        }
+    } else if (action.type === actions.REGISTER_TRAVEL_FAILED) {
+        return {
+            ...state,
+            newTravelError: action.payload,
+            newTravelLoading: false
+        }
+    } else if (action.type === actions.REGISTER_TRAVEL_SUCCESS) {
+        return {
+            ...state,
+            travels: state.travels.push(action.payload),
+            newTravelError: null,
+            newTravelLoading: false
         }
     }
     return state;

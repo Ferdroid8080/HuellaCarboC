@@ -6,6 +6,10 @@ export const FETCH_VEHICLES_INIT = 'FETCH_VEHICLES_INIT'
 export const FETCH_VEHICLES_FAILED = 'FETCH_VEHICLES_FAILED'
 export const FETCH_VEHICLES_SUCCESS = 'FETCH_VEHICLES_SUCCESS'
 
+export const REGISTER_TRAVEL_INIT = 'REGISTER_TRAVEL_INIT'
+export const REGISTER_TRAVEL_FAILED = 'REGISTER_TRAVEL_FAILED'
+export const REGISTER_TRAVEL_SUCCESS = 'REGISTER_TRAVEL_SUCCESS'
+
 
 const fetchTravelsInit = () => ({
     type: FETCH_TRAVELS_INIT
@@ -32,6 +36,20 @@ const fetchVehiclesFail = (error) => ({
 
 const fetchVehiclesSuccess = (data) => ({
     type: FETCH_VEHICLES_SUCCESS,
+    payload: data
+})
+
+const registerTravelInit = () => ({
+    type: REGISTER_TRAVEL_INIT
+})
+
+const registerTravelFail = (error) => ({
+    type: REGISTER_TRAVEL_FAILED,
+    payload: error
+})
+
+const registerTravelSuccess = (data) => ({
+    type: REGISTER_TRAVEL_SUCCESS,
     payload: data
 })
 
@@ -80,6 +98,37 @@ export const fetchVehicles = () => (
         } catch (error) {
             console.log(error.message)
             dispatch(fetchVehiclesFail(error.message))
+        }
+    }
+)
+
+
+export const registerTravel = (params) => (
+    async dispatch => {
+        dispatch(registerTravelInit())
+        try {
+            let newTravel = await fetch('http://localhost:4500/travels/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(params)
+            })
+            if (newTravel.ok) {
+                newTravel = await newTravel.json()
+                if (newTravel.error) {
+                    dispatch(registerTravelFail({
+                        message: 'Travel cannot be added'
+                    }))
+                } else {
+                    dispatch(registerTravelSuccess([newTravel.data]))
+                }
+            } else {
+                throw Error(`${newTravel.status} ${newTravel.statusText}`)
+            }
+        } catch (error) {
+            console.log(error.message)
+            dispatch(registerTravelFail(error.message))
         }
     }
 )

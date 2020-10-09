@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { Button, Checkbox, Container, Form, Grid, Header, Message, Modal, Select } from 'semantic-ui-react';
@@ -17,7 +18,12 @@ function NewTravel(props) {
     })
 
     const formSubmittedHandler = values => {
-        console.log(values)
+        if (values.workers.length <= 0) {
+            alert('Por favor agregue trabajadores')
+            return
+        }
+        props.onRegisterTravel(values)
+        props.history.redirect('/')
     }
 
     const modalPeopleHandler = e => {
@@ -42,7 +48,7 @@ function NewTravel(props) {
                             initialValues={{
                                 startPoint: '',
                                 finalPoint: '',
-                                vehicleId: '',
+                                vehicleLabel: '',
                                 kilometers: '',
                                 workers: initialWorkers,
                                 roundTrip: false
@@ -82,8 +88,8 @@ function NewTravel(props) {
                                                         ({ key: item._id, value: item.label, text: item.name }))
                                                 } 
                                                 placeholder='Seleccione un vehiculo' 
-                                                name='vehicleId' value={values.vehicleId} onChange={(e, { value }) => setFieldValue('vehicleId', value)}
-                                                error={touched.vehicleId && errors.vehicleId} />
+                                                name='vehicleLabel' value={values.vehicleLabel} onChange={(e, { value }) => setFieldValue('vehicleLabel', value)}
+                                                error={touched.vehicleLabel && errors.vehicleLabel} />
                                         </Form.Field>
                                         <Form.Field>
                                             Kilometros recorridos
@@ -177,7 +183,7 @@ yup.setLocale({
 const schemaValidation = yup.object({
     startPoint: yup.string().required(),
     finalPoint: yup.string().required(),
-    vehicleId: yup.string().required(),
+    vehicleLabel: yup.string().required(),
     // workers: yup.array().required(),
     kilometers: yup.number().required(),
     roundTrip: yup.string().required()
@@ -188,7 +194,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    onFetchVehicles: () => dispatch(actions.fetchVehicles())
+    onFetchVehicles: () => dispatch(actions.fetchVehicles()),
+    onRegisterTravel: (params) => dispatch(actions.registerTravel(params))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewTravel);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewTravel));
