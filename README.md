@@ -1,4 +1,4 @@
-# carbon-footprint app (crbnfp)
+# HuellaCarboC
 
 ### server api
 Endpoints necesarios consumibles para registrar los viajes realizados de los trabajadores
